@@ -1,0 +1,28 @@
+﻿@page "{id}"
+@model TeamModel
+@{
+    ViewData["Title"] = "NFL Team - " + @Html.DisplayFor(model => model.Team.Name);
+}
+
+<div class="jumbotron p-2">
+    <h1 class="display-4">
+        <img src="/image/nfl/logo/@(Model.Team.TeamId).png" />
+        @Model.Team.Location
+        @Model.Team.Name
+    </h1>
+</div>
+
+<div class="d-flex justify-content-between pb-2">
+    <div>
+        <div>@Model.Team.Division.ConferenceId - @Model.Team.DivisionId</div>
+        <div>Record: @Model.Team.Win-@Model.Team.Loss-@Model.Team.Tie</div>
+        <hr />
+        <div>@Model.Team.Stadium Statium</div>
+        <div>Capacity: @Model.Team.Capacity</div>
+        <hr />
+        <div>@Model.Team.Address</div>
+        <div class="pb-2">@Model.Team.City, @Model.Team.State @Model.Team.Zip</div>
+        <img src="/image/nfl/stadium/@(Model.Team.TeamId).jpg" />
+    </div>
+    <img src="/image/nfl/seating/@(Model.Team.TeamId).png"
+</div>
