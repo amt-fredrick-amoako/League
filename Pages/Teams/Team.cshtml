@@ -24,5 +24,27 @@
         <div class="pb-2">@Model.Team.City, @Model.Team.State @Model.Team.Zip</div>
         <img src="/image/nfl/stadium/@(Model.Team.TeamId).jpg" />
     </div>
-    <img src="/image/nfl/seating/@(Model.Team.TeamId).png"
+    <img src="/image/nfl/seating/@(Model.Team.TeamId).png" />
 </div>
+
+<section class="grid container">
+    <div class="d-flex bg-primary text-white">
+        <div class="p-1" style="flex: 0 0 10%">Number</div>
+        <div class="p-1" style="flex: 0 0 25%">Name</div>
+        <div class="p-1" style="flex: 0 0 10%">Position</div>
+        <div class="p-1" style="flex: 0 0 20%">Experience</div>
+        <div class="p-1" style="flex: 0 0 25%">College</div>
+        <div class="p-1" style="flex: 0 0 10%">Depth</div>
+    </div>
+    @foreach (Player player in Model.Team.Players)
+    {
+        <a class="@(player.Depth == 1?"d-flex starter": "d-flex")" asp-page="/Players/Player" asp-route-id="@player.PlayerId">
+            <div class="p-1" style="flex: 0 0 10%">@player.Number</div>
+            <div class="p-1" style="flex: 0 0 25%">@player.Name</div>
+            <div class="p-1" style="flex: 0 0 10%">@player.Position</div>
+            <div class="p-1" style="flex: 0 0 20%">@player.Experience</div>
+            <div class="p-1" style="flex: 0 0 25%">@player.College</div>
+            <div class="p-1" style="flex: 0 0 10%">@player.Depth</div>
+        </a>
+    }
+</section>
